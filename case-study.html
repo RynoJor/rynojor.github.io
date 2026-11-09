@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case study: Revenue Leak Engine · Ryno Jordaan</title>
+<meta name="description" content="How I built the Revenue Leak Engine: six checks that find $881,884 leaking from a $1.0M synthetic pipeline, plus lead scoring, an AI reply classifier, a lead router and a weekly brief.">
+<meta name="author" content="Ryno Jordaan">
+<link rel="canonical" href="https://rynojor.github.io/case-study.html">
+<meta name="theme-color" content="#faf8f4">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rynojor.github.io/case-study.html">
+<meta property="og:title" content="Case study: Revenue Leak Engine">
+<meta property="og:description" content="Where a sales pipeline loses money without anyone seeing it, and the tools I built to find it. Decisions, what broke, results and limits.">
+<meta property="og:image" content="https://rynojor.github.io/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Revenue Leak Engine dashboard: $881,884 leaking from a $1.0M pipeline">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23b2441a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap bar">
+  <a class="home" href="./">Ryno Jordaan</a>
+  <nav aria-label="Main">
+    <a href="./#work">Work</a>
+    <a href="case-study.html" aria-current="page">Case study</a>
+    <a href="./#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="article">
+  <a class="back" href="./">← Back to home</a>
+  <h1>Revenue Leak Engine</h1>
+  <p class="standfirst">Six checks found $881,884 leaking from a $1.0M pipeline. This is how I built them, what broke, and what the numbers do and don't prove.</p>
+  <p class="meta">Python · pandas · Claude API · Streamlit · synthetic data, snapshot 31 Oct 2026</p>
+
+  <h2>The problem</h2>
+  <p>Sales pipelines rarely lose money in one big event. They lose it quietly. A proposal goes 30 days without a call. An inbound lead waits two hours for a reply. The same company sits in the CRM twice, so the forecast counts one deal two times. Nobody sees these, because each one looks small on its own.</p>
+  <p>I spent three years in high-volume sales. My close rate rose once I fixed speed to lead and follow-up. This is the tool I wanted then: it finds the leaks and prices each one.</p>
+
+  <h2>What I built</h2>
+  <ul>
+    <li><strong>A synthetic CRM</strong> with 2,000 leads, 600 deals and 1,500 email replies. Six leaks are planted at known counts, so every module can be graded.</li>
+    <li><strong>A hygiene check</strong> that finds all six leaks from the CRM data alone.</li>
+    <li><strong>Lead scoring</strong> with a plain-English reason for every score.</li>
+    <li><strong>A reply classifier</strong> using Claude Haiku. It sorts replies into five buckets so interested ones get answered first.</li>
+    <li><strong>A speed-to-lead router</strong> that validates, dedupes and assigns an inbound lead, then alerts the rep.</li>
+    <li><strong>A weekly brief</strong> written by Claude, and a nine-page dashboard.</li>
+  </ul>
+
+  <figure>
+    <img src="img/overview.jpg" width="1200" height="900" loading="lazy" alt="Dashboard overview: $881,884 leaking from a $1.0M pipeline, a bar chart of leak by type, and a ranked list of what to fix first">
+    <figcaption>The dashboard's overview page. Measured dollars (stalled and double-counted deals) are shown apart from estimated ones.</figcaption>
+  </figure>
+
+  <h2>Five decisions</h2>
+  <h3>The answer key stays out of the detectors</h3>
+  <p>The generator writes an answer key of every planted record. Only the tests and evaluation scripts read it. The classifier drops the true label before any reply is sent to the model.</p>
+  <h3>LLM results are cached, so the demo costs $0</h3>
+  <p>Each classification is saved, keyed by a hash of the model, prompt and schema. A rerun with the same prompt is free. The dashboard reads saved files and never calls the API, so a visitor costs nothing.</p>
+  <h3>The brief has a number check</h3>
+  <p>Python computes every fact. Claude only writes the sentences. A checker then pulls every number out of the brief and looks it up in the facts file. If one is missing, Claude gets one retry. If that fails too, nothing is published.</p>
+  <h3>Scoring is tested on the future</h3>
+  <p>The model trains on leads created before June 2026 and is tested once on June to August. Features are frozen at the point a rep would see the score, so later replies can't leak the outcome.</p>
+  <h3>The data is synthetic because of privacy law</h3>
+  <p>A real CRM export is full of names and emails that I am not allowed to publish. A seeded generator gives data anyone can rebuild byte for byte, with leaks at known counts.</p>
+
+  <h2>What broke, and the fix</h2>
+  <p><strong>The never-followed-up check found 74 of 75.</strong> I measured lead age in elapsed hours, so a lead created 6.25 days before the snapshot didn't count as 7 days old. The schema counts calendar days. I changed the check to match the definition, not the answer key.</p>
+  <p><strong>Name similarity merged different businesses.</strong> In the router, a company-name match alone produced 19 false pairs, such as "Riverlight Clinic" and "Silverlight Clinic Co.". A fuzzy match now needs a second signal: the same surname or the same business email domain. False matches went to 0.</p>
+  <p><strong>A perfect score hid a weak rule.</strong> Matching duplicates on company name alone also scored 100%, but only because each company in the sample had one contact. I added 295 colleague rows as a stress test. Company-only matching merged all 295. My rule merged none.</p>
+
+  <h2>Results</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>All figures from the repo's committed outputs.</caption>
+      <thead><tr><th scope="col">Module</th><th scope="col">Result</th><th scope="col">Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Hygiene check</td><td>625 of 625 planted records, 0 false positives, $881,884 found</td><td class="num">$0</td></tr>
+        <tr><td>Lead scoring</td><td>A-tier wins 3.8x the D-tier rate on held-out leads; AUC 0.61</td><td class="num">$0</td></tr>
+        <tr><td>Reply classifier</td><td>99.6% of 1,500 replies correct (6 wrong); all 441 interested caught</td><td class="num">USD 0.14</td></tr>
+        <tr><td>Router</td><td>8 ms median to an owner; 90 of 90 duplicates matched</td><td class="num">$0</td></tr>
+        <tr><td>Weekly brief</td><td>40 of 40 numbers and dates found in the facts</td><td class="num">USD 0.01</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Honest limits</h2>
+  <ul>
+    <li>The data follows the rules my checks encode, so 100% is expected, not a boast.</li>
+    <li>The scoring signal is weak. An AUC of 0.61 is better than chance, but only just. Treat the tiers as a rough order.</li>
+    <li>The 99.6% is flattering. The replies come from about 300 template sentences. Real email will score lower.</li>
+    <li>Of the $881,884, $342,834 is estimated from gaps in win rates. That shows correlation, not cause.</li>
+    <li>The router gets a lead to a rep in 8 ms. A person still has to reply.</li>
+  </ul>
+
+  <h2>With real CRM data, I would</h2>
+  <ul>
+    <li>Hand-label a sample of real replies and re-measure the classifier before trusting any number.</li>
+    <li>Rerun the scoring pipeline and let feature selection decide what matters.</li>
+    <li>Wire the router to a form webhook and a queue, write the owner back to the CRM, and escalate leads not answered within the SLA.</li>
+  </ul>
+
+  <div class="endcta actions">
+    <a class="btn primary" href="https://revenue-leak-engine-yh3ipqcltain2zvnralelv.streamlit.app/" rel="noopener">Live dashboard <span class="arr" aria-hidden="true">↗</span></a>
+    <a class="btn" href="https://github.com/RynoJor/revenue-leak-engine" rel="noopener">Code <span class="arr" aria-hidden="true">↗</span></a>
+    <a class="btn" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">Message me on LinkedIn <span class="arr" aria-hidden="true">↗</span></a>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>Ryno Jordaan · Pretoria, South Africa · Plain HTML and CSS, no tracking.</p>
+</footer>
+</body>
+</html>
