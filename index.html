@@ -1,129 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ryno Jordaan · GTM engineer: sales systems, data and AI</title>
-<meta name="description" content="Ryno Jordaan, GTM engineer in South Africa, open to remote. Built the Revenue Leak Engine: $881,884 found leaking from a $1.0M synthetic sales pipeline.">
+<meta name="description" content="Ryno Jordaan, GTM engineer in Pretoria, South Africa, open to remote. Revenue systems that found $881,884 leaking from a $1.0M pipeline and route a lead in 8 ms. Trained designer. Try the live lead router.">
 <meta name="author" content="Ryno Jordaan">
 <link rel="canonical" href="https://rynojor.github.io/">
-<meta name="theme-color" content="#faf8f4">
+<meta name="theme-color" content="#0a0a0a">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rynojor.github.io/">
 <meta property="og:title" content="Ryno Jordaan · GTM engineer: sales systems, data and AI">
-<meta property="og:description" content="Revenue Leak Engine: $881,884 leaking from a $1.0M pipeline, found by six automated checks. Live dashboard, code and case study.">
+<meta property="og:description" content="$881,884 found leaking from a $1.0M pipeline. Leads routed in 8 ms. Salesforce, HubSpot, n8n and Claude builds, plus a lead router you can try in the browser.">
 <meta property="og:image" content="https://rynojor.github.io/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Revenue Leak Engine dashboard: $881,884 leaking from a $1.0M pipeline">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23b2441a'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23d3cbb7'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%2315130f' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/InstrumentSans-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="wrap bar">
-  <a class="home" href="./">Ryno Jordaan</a>
-  <nav aria-label="Main">
-    <a href="#work">Work</a>
-    <a href="case-study.html">Case study</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<svg class="curves" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><path d="M-80 640C260 520 420 860 760 760s520-420 780-300"/><path d="M-40 120c300 120 520-60 760 60s420 420 760 380"/><path d="M200-60c80 260-60 480 140 700s560 160 640 360"/></svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="./"><i>RJ</i><span>Ryno Jordaan</span></a>
+    <nav aria-label="Main">
+      <a href="#demo" class="keep">Demo</a>
+      <a href="#work">Work</a>
+      <a href="#design">Design</a>
+      <a href="#services">Services</a>
+      <a href="#contact" class="hire">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main id="main" class="wrap">
+<main id="main">
 
-  <section class="hero" aria-labelledby="name">
-    <div>
-      <h1 id="name">Ryno Jordaan</h1>
-      <p class="role">GTM engineer: sales systems, data and AI</p>
-      <p class="where">South Africa (UTC+2) · open to remote</p>
-    </div>
-    <img class="hero-photo" src="img/ryno.jpg" width="112" height="112" alt="Ryno Jordaan">
-    <p class="proof">I carried a target before I built systems for one: <strong>top 20 of 450 buyers nationally</strong>, in a high-volume sales environment.</p>
-  </section>
-
-  <section class="section" id="work" aria-labelledby="work-label">
-    <p class="label" id="work-label">Project</p>
-    <article class="project" aria-labelledby="rle-title">
-      <p class="kicker">Revenue Leak Engine · synthetic CRM data · Python, Claude API, Streamlit</p>
-      <h2 id="rle-title"><span class="amt">$881,884</span> leaking from a $1.0M pipeline</h2>
-      <p class="lede">I built a fake CRM with six revenue leaks planted at known counts, then the tools a sales team would use to find and fix them.</p>
-
-      <ul class="ledger">
-        <li><span class="fig">625 of 625</span><span class="what">planted bad records found by the hygiene check, with 0 false positives</span></li>
-        <li><span class="fig">99.6%</span><span class="what">of 1,500 sales replies sorted correctly by Claude Haiku, for USD 0.14 in total</span></li>
-        <li><span class="fig">8 ms</span><span class="what">to route an inbound lead to an owner, against a <span style="white-space:nowrap">13-minute</span> median first reply</span></li>
-      </ul>
-
-      <div class="actions">
-        <a class="btn primary" href="https://revenue-leak-engine-yh3ipqcltain2zvnralelv.streamlit.app/" rel="noopener">Live dashboard <span class="arr" aria-hidden="true">↗</span></a>
-        <a class="btn" href="case-study.html">Case study</a>
-        <a class="btn" href="https://github.com/RynoJor/revenue-leak-engine" rel="noopener">Code <span class="arr" aria-hidden="true">↗</span></a>
-        <!-- LOOM_URL: paste the Loom link into href below and delete the "hidden" attribute -->
-        <a class="btn" href="#" hidden rel="noopener">Loom walkthrough <span class="arr" aria-hidden="true">↗</span></a>
+  <!-- HERO -->
+  <section class="wrap hero" aria-labelledby="name">
+    <div class="bento">
+      <div class="t s7 intro">
+        <div class="who">
+          <img src="img/ryno.jpg" width="112" height="112" alt="Ryno Jordaan">
+          <p><span class="status">Open to remote</span><br><span class="muted">Pretoria, South Africa · UTC+2</span></p>
+        </div>
+        <div>
+          <h1 id="name">Ryno <span class="serif">Jordaan</span></h1>
+          <p class="role">GTM engineer: <b>sales systems, data and AI</b></p>
+          <p class="sub">I build the systems that get a lead to the right rep in milliseconds and show where pipeline money leaks. I'm also a trained designer, so people want to use what I build.</p>
+        </div>
+        <div class="btns">
+          <a class="btn light" href="#demo">Try the lead router <span class="arr" aria-hidden="true">↓</span></a>
+          <a class="btn" href="#work">See the work</a>
+        </div>
       </div>
-      <p class="note">All data is synthetic. The live dashboard can take a few seconds to wake up.</p>
-    </article>
-  </section>
 
-  <section class="section" aria-labelledby="more-label">
-    <p class="label" id="more-label">More projects</p>
-    <ul class="ledger more">
-      <li><a class="fig" href="https://github.com/RynoJor/salesforce-lead-routing" rel="noopener">Salesforce lead routing</a><span class="what">200 leads routed in one transaction in about 0.8 s, with Apex, Flow and a 60-minute SLA escalation. 29 tests, 98% coverage.</span></li>
-      <li><a class="fig" href="https://github.com/RynoJor/n8n-speed-to-lead" rel="noopener">n8n speed-to-lead</a><span class="what">An inbound lead validated, deduped, scored, assigned and alerted in about 160 ms. Built in n8n.</span></li>
-      <li><a class="fig" href="https://github.com/RynoJor/hubspot-pipeline-mcp" rel="noopener">HubSpot pipeline MCP</a><span class="what">Ask Claude which deals are stuck. Six read-only tools over the HubSpot CRM API.</span></li>
-      <li><a class="fig" href="https://github.com/RynoJor/job-hunt-pipeline" rel="noopener">Job hunt pipeline</a><span class="what">My job hunt run like outbound: 1,014 "remote" ads scanned, 63% not open to South Africa.</span></li>
-      <li><a class="fig" href="https://github.com/RynoJor/sheets-outbound-sequencer" rel="noopener">Sheets outbound sequencer</a><span class="what">Cold email from Google Sheets and Apps Script, with send caps, stop-on-reply and unsubscribe.</span></li>
-    </ul>
-  </section>
+      <div class="t s5 sand ledger" aria-labelledby="ledger-h">
+        <div class="top"><p class="lbl" id="ledger-h">Found leaking</p><p class="lbl">Revenue Leak Engine</p></div>
+        <p class="big" id="leak" aria-label="$881,884">$881,884</p>
+        <p class="lbl">from a $1.0M synthetic pipeline, by six automated checks</p>
+        <p class="feed" id="feed" aria-hidden="true"></p>
+        <div class="bars pre" id="bars" role="list" aria-label="Leak by type, in US dollars">
+          <div class="b hot" role="listitem" tabindex="0" style="--h:100%"><em>$454,200</em><span class="v"></span><span class="sr">Stalled proposals: $454,200</span></div>
+          <div class="b" role="listitem" tabindex="0" style="--h:43.8%"><em>$198,933</em><span class="v"></span><span class="sr">Weak rep conversion: $198,933</span></div>
+          <div class="b" role="listitem" tabindex="0" style="--h:18.8%"><em>$85,184</em><span class="v"></span><span class="sr">Slow first response: $85,184</span></div>
+          <div class="b" role="listitem" tabindex="0" style="--h:18.7%"><em>$84,850</em><span class="v"></span><span class="sr">Duplicate leads: $84,850</span></div>
+          <div class="b" role="listitem" tabindex="0" style="--h:9.2%"><em>$41,941</em><span class="v"></span><span class="sr">Never followed up: $41,941</span></div>
+          <div class="b" role="listitem" tabindex="0" style="--h:3.7%"><em>$16,776</em><span class="v"></span><span class="sr">Missing required fields: $16,776</span></div>
+        </div>
+        <div class="legend" aria-hidden="true"><span>Stalled</span><span>Weak rep</span><span>Slow reply</span><span>Dupes</span><span>No follow-up</span><span>Missing</span></div>
+      </div>
 
-  <section class="section" aria-labelledby="build-label">
-    <p class="label" id="build-label">What I build</p>
-    <ul class="build">
-      <li>
-        <h3>CRM data you can trust</h3>
-        <p>Stages, required fields and dedupe rules, with checks that flag bad records and put a dollar value on them.</p>
-      </li>
-      <li>
-        <h3>Speed to lead</h3>
-        <p>Routing that gets an inbound lead to the right rep in milliseconds, and scoring that says why a lead ranks where it does.</p>
-      </li>
-      <li>
-        <h3>AI with a check on it</h3>
-        <p>Claude workflows that sort replies and draft briefs, measured against a test set, cached to keep costs low, with a person approving what goes out.</p>
-      </li>
-      <li>
-        <h3>Reporting a sales leader reads</h3>
-        <p>Dashboards and a short weekly brief that rank problems by money at risk and name an owner for each.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="section" aria-labelledby="bg-label">
-    <p class="label" id="bg-label">Background</p>
-    <div class="prose">
-      <p>For three years I worked as a buyer in a high-volume sales environment. I finished 20th of 450 nationally, was named Lead Buyer twice and never missed a monthly target. My lead-to-close rate was 22%, 35% above the national average, after I tracked my own funnel and fixed speed to lead and follow-up.</p>
-      <p>In 2026 I started building sales systems with Claude Code: a CRM workstation in Node.js, outbound sequences, and AI agents that draft from a shared knowledge base while a person approves every send. I am HubSpot Sales Hub certified and work UK, EU and US Eastern hours.</p>
+      <div class="t s3 lav stat">
+        <p class="lbl">Speed to lead</p>
+        <div><p class="big">8 ms</p><p class="k">to route an inbound lead to its owner</p></div>
+      </div>
+      <div class="t s3 stat">
+        <p class="lbl">CRM hygiene</p>
+        <div><p class="big">625<span class="muted">/625</span></p><p class="k">planted bad records caught, 0 false positives</p></div>
+      </div>
+      <div class="t s3 terra stat">
+        <p class="lbl">AI reply sorting</p>
+        <div><p class="big">99.6%</p><p class="k">of 1,500 replies classified by Claude, for USD 0.14</p></div>
+      </div>
+      <div class="t s3" aria-labelledby="clock-h">
+        <p class="lbl" id="clock-h">Pretoria time</p>
+        <p class="clock" id="clock">--:--</p>
+        <p class="muted" style="margin:0;font-size:.9rem">Works UK, EU and US Eastern hours</p>
+        <div class="hours" id="hours" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="contact" aria-labelledby="contact-label">
-    <p class="label" id="contact-label">Contact</p>
-    <div>
-      <p class="prose" style="margin:0 0 1rem">Hiring for a GTM engineering, RevOps or sales systems role? Message me.</p>
-      <ul class="contact">
-        <li><a class="btn primary" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">LinkedIn <span class="arr" aria-hidden="true">↗</span></a></li>
-        <li><a class="btn" href="https://github.com/RynoJor" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a></li>
-      </ul>
+  <!-- DEMO -->
+  <section class="wrap sec" id="demo" aria-labelledby="demo-h">
+    <div class="sec-head">
+      <p class="eyebrow">Try it · runs in your browser</p>
+      <h2 id="demo-h">Route a lead. <span class="serif">Watch every step.</span></h2>
+      <p>A small copy of my speed-to-lead routers in Salesforce and n8n. Pick a lead or type your own. It gets checked, deduped against a fake CRM, scored and given to a rep, and each step shows its reason. All data is made up.</p>
+    </div>
+
+    <div class="bento demo">
+      <form class="t s5 form" id="leadForm" novalidate>
+        <div>
+          <p class="lbl" id="presets-l" style="margin-bottom:.5rem">Try one</p>
+          <div class="presets" role="group" aria-labelledby="presets-l">
+            <button type="button" class="preset" data-p="fresh" aria-pressed="false">Hot demo request</button>
+            <button type="button" class="preset" data-p="dupe" aria-pressed="false">Duplicate</button>
+            <button type="button" class="preset" data-p="near" aria-pressed="false">Look-alike name</button>
+            <button type="button" class="preset" data-p="ent" aria-pressed="false">Enterprise</button>
+            <button type="button" class="preset" data-p="junk" aria-pressed="false">Junk</button>
+          </div>
+        </div>
+        <div class="two">
+          <div class="fld"><label for="f-name">Contact name</label><input id="f-name" name="name" autocomplete="off" value="Amara Okafor"></div>
+          <div class="fld"><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="off" value="Halden Robotics"></div>
+        </div>
+        <div class="two">
+          <div class="fld"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="off" value="amara@haldenrobotics.com"></div>
+          <div class="fld"><label for="f-region">Region</label>
+            <select id="f-region" name="region">
+              <option value="UK">UK and Ireland</option>
+              <option value="EU">Europe</option>
+              <option value="USE">US East</option>
+              <option value="ZA">South Africa</option>
+              <option value="ROW">Rest of world</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="fld"><legend>Company size</legend>
+          <div class="seg">
+            <input type="radio" name="size" id="sz1" value="1"><label for="sz1">1–10</label>
+            <input type="radio" name="size" id="sz2" value="2"><label for="sz2">11–50</label>
+            <input type="radio" name="size" id="sz3" value="3"><label for="sz3">51–200</label>
+            <input type="radio" name="size" id="sz4" value="4" checked><label for="sz4">201–1,000</label>
+            <input type="radio" name="size" id="sz5" value="5"><label for="sz5">1,000+</label>
+          </div>
+        </fieldset>
+        <fieldset class="fld"><legend>Where it came from</legend>
+          <div class="seg">
+            <input type="radio" name="src" id="sr1" value="demo" checked><label for="sr1">Demo request</label>
+            <input type="radio" name="src" id="sr2" value="pricing"><label for="sr2">Pricing page</label>
+            <input type="radio" name="src" id="sr3" value="webinar"><label for="sr3">Webinar</label>
+            <input type="radio" name="src" id="sr4" value="ebook"><label for="sr4">Ebook</label>
+          </div>
+        </fieldset>
+        <button class="go" type="submit" id="goBtn">Route this lead <kbd aria-hidden="true">Enter</kbd></button>
+      </form>
+
+      <div class="t s7 pipe" aria-labelledby="pipe-h">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem">
+          <p class="lbl" id="pipe-h">Pipeline</p>
+          <p class="lbl" style="font-family:var(--mono);font-size:.72rem">slowed down so you can watch</p>
+        </div>
+        <ol class="stages" id="stages">
+          <li class="stage" data-s="validate"><span class="ic">01</span><div><h3>Validate</h3><p>Checks the email and required fields.</p></div><span class="ms"></span></li>
+          <li class="stage" data-s="dedupe"><span class="ic">02</span><div><h3>Dedupe</h3><p>Looks for this person or company in the CRM.</p></div><span class="ms"></span></li>
+          <li class="stage" data-s="score"><span class="ic">03</span><div><h3>Score</h3><p>Scores 0–100 and says why.</p></div><span class="ms"></span></li>
+          <li class="stage" data-s="assign"><span class="ic">04</span><div><h3>Assign</h3><p>Picks an owner by territory and load.</p></div><span class="ms"></span></li>
+          <li class="stage" data-s="alert"><span class="ic">05</span><div><h3>Alert</h3><p>Tells the rep and starts the reply clock.</p></div><span class="ms"></span></li>
+        </ol>
+      </div>
+
+      <div class="t s5 lav result" aria-live="polite" id="result">
+        <p class="lbl">Result</p>
+        <div class="who"><div class="av" id="r-av">?</div><div><h3 id="r-title">Waiting for a lead</h3><p class="muted" style="margin:.2rem 0 0" id="r-sub">Pick one above, or press Route.</p></div></div>
+        <p class="why" id="r-why">The router explains every decision, so a rep or a manager can see why a lead went where it did.</p>
+        <div>
+          <p class="timer" id="r-ms">0.00<small>ms</small></p>
+          <p class="foot">Compute time, measured in your browser. My Python router does it in 8 ms with file I/O; Salesforce routes 200 leads in about 0.8 s.</p>
+        </div>
+      </div>
+
+      <div class="t s7 reps" aria-labelledby="reps-h">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><p class="lbl" id="reps-h">Reps and open leads today</p><button type="button" class="preset" id="resetBtn">Reset</button></div>
+        <ul class="replist" id="reps"></ul>
+        <div class="crm-wrap">
+          <table class="crm" aria-label="Fake CRM records used for dedupe">
+            <thead><tr><th scope="col">Already in the CRM</th><th scope="col">Contact</th><th scope="col">Domain</th><th scope="col">Owner</th></tr></thead>
+            <tbody id="crm"></tbody>
+          </table>
+        </div>
+        <ol class="log" id="log" aria-label="Routing log"></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="wrap sec" id="numbers" aria-labelledby="num-h">
+    <div class="sec-head">
+      <p class="eyebrow">Numbers</p>
+      <h2 id="num-h">Measured, <span class="serif">not claimed.</span></h2>
+      <p>Every figure comes from a test, a committed output or a sales record. The project data is synthetic, and the repos say so.</p>
+    </div>
+    <div class="bento">
+      <div class="t s4 sand stat rv"><p class="lbl">Salesforce lead routing</p><div><p class="big">0.8 s</p><p class="k">to route 200 leads in one transaction, with Apex and Flow</p></div></div>
+      <div class="t s4 stat rv"><p class="lbl">Salesforce tests</p><div><p class="big">98%</p><p class="k">code coverage from 29 Apex tests</p></div></div>
+      <div class="t s4 lav stat rv"><p class="lbl">n8n speed to lead</p><div><p class="big">160 ms</p><p class="k">to validate, dedupe, score, assign and alert one lead (about)</p></div></div>
+      <div class="t s4 stat rv"><p class="lbl">Before systems, I sold</p><div><p class="big">Top 20</p><p class="k">of 450 buyers nationally, in a high-volume sales environment</p></div></div>
+      <div class="t s4 terra stat rv"><p class="lbl">My own funnel</p><div><p class="big">22%</p><p class="k">lead-to-close, 35% above the national average</p></div></div>
+      <div class="t s4 stat rv"><p class="lbl">Open source</p><div><p class="big">6</p><p class="k">public repos with tests, READMEs and honest limits</p></div><a class="btn" href="https://github.com/RynoJor" rel="noopener" style="align-self:flex-start">GitHub <span class="arr" aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="wrap sec" id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <p class="eyebrow">Work</p>
+      <h2 id="work-h">Six builds. <span class="serif">One flagship.</span></h2>
+    </div>
+    <div class="bento">
+      <article class="t s12 sand flag rv" aria-labelledby="rle-h" style="grid-column:1/-1">
+        <div class="copy">
+          <p class="lbl">Flagship · Python, pandas, Claude API, Streamlit</p>
+          <h3 id="rle-h">Revenue Leak Engine</h3>
+          <p>I built a fake CRM with six revenue leaks planted at known counts, then the tools a sales team would use to find and fix them: hygiene checks, lead scoring, an AI reply classifier, a lead router and a weekly brief.</p>
+          <div class="mini">
+            <div><b>$881,884</b><span>found leaking from $1.0M</span></div>
+            <div><b>625/625</b><span>bad records, 0 false positives</span></div>
+            <div><b>USD 0.14</b><span>to classify 1,500 replies, 99.6% right</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn" href="https://revenue-leak-engine-yh3ipqcltain2zvnralelv.streamlit.app/" rel="noopener">Live dashboard <span class="arr" aria-hidden="true">↗</span></a>
+            <a class="btn" href="case-study.html">Read the case study</a>
+            <a class="btn" href="https://github.com/RynoJor/revenue-leak-engine" rel="noopener">Code <span class="arr" aria-hidden="true">↗</span></a>
+          </div>
+          <p class="note">All data is synthetic. The live dashboard can take a few seconds to wake up.</p>
+        </div>
+        <div class="media">
+          <div class="frame">
+            <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>revenue-leak-engine · streamlit</span></div>
+            <img src="img/work/rle-walkthrough.webp" width="960" height="600" loading="lazy" decoding="async" alt="Walkthrough of the Revenue Leak Engine dashboard: overview, reps, replies and the weekly brief">
+          </div>
+        </div>
+      </article>
+
+      <a class="t s8 card rv" href="https://github.com/RynoJor/salesforce-lead-routing" rel="noopener">
+        <p class="lbl">Salesforce · Apex, Flow</p>
+        <h3>Salesforce lead routing</h3>
+        <p>200 leads routed in one transaction in about 0.8 s, with Apex, Flow and a 60-minute SLA escalation. 29 tests, 98% coverage.</p>
+        <div class="shots">
+          <img src="img/work/sf-routed-lead.webp" width="1400" height="1313" loading="lazy" decoding="async" alt="A routed lead in Salesforce showing its owner and routing reason">
+          <img src="img/work/sf-flow-canvas.webp" width="1400" height="1215" loading="lazy" decoding="async" alt="The SLA escalation Flow on the Salesforce Flow canvas">
+        </div>
+        <span class="go-link"><span>github.com/RynoJor/salesforce-lead-routing</span><span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="t s4 lav card rv" href="https://github.com/RynoJor/n8n-speed-to-lead" rel="noopener">
+        <p class="lbl">n8n · webhooks</p>
+        <h3>n8n speed-to-lead</h3>
+        <p>An inbound lead validated, deduped, scored, assigned and alerted in about 160 ms. Built in n8n.</p>
+        <div class="viz" aria-hidden="true"><div class="nodes"><span>Hook</span><i></i><span>Valid</span><i></i><span>Dedupe</span><i></i><span>Score</span><i></i><span class="on">Assign</span></div></div>
+        <span class="go-link"><span>n8n-speed-to-lead</span><span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="t s4 card rv" href="https://github.com/RynoJor/hubspot-pipeline-mcp" rel="noopener">
+        <p class="lbl">MCP · HubSpot CRM API</p>
+        <h3>HubSpot pipeline MCP</h3>
+        <p>Ask Claude which deals are stuck. Six read-only tools over the HubSpot CRM API.</p>
+        <div class="viz" aria-hidden="true" style="background:var(--lav);border-color:transparent"><div class="chat"><span class="q">Which deals are stuck?</span><span class="tool">find_stalled_deals()</span><span class="a">40 proposals, no call in 30+ days.</span></div></div>
+        <span class="go-link"><span>hubspot-pipeline-mcp</span><span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="t s4 card rv" href="https://github.com/RynoJor/job-hunt-pipeline" rel="noopener">
+        <p class="lbl">Python · scraping, filters</p>
+        <h3>Job hunt pipeline</h3>
+        <p>My job hunt run like outbound: 1,014 "remote" ads scanned, 63% not open to South Africa.</p>
+        <div class="viz" aria-hidden="true"><div class="funnel"><div style="width:100%;background:#262624">1,014 remote ads</div><div style="width:63%;background:var(--terra);color:var(--terra-ink)">63% locked out</div></div></div>
+        <span class="go-link"><span>job-hunt-pipeline</span><span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="t s4 sand card rv" href="https://github.com/RynoJor/sheets-outbound-sequencer" rel="noopener">
+        <p class="lbl">Google Sheets · Apps Script</p>
+        <h3>Sheets outbound sequencer</h3>
+        <p>Cold email from Google Sheets and Apps Script, with send caps, stop-on-reply and unsubscribe.</p>
+        <div class="viz" aria-hidden="true" style="background:var(--ink)"><div class="sheet"><span class="h">Prospect</span><span class="h">Step</span><span class="h">Status</span><span>Sample Co A</span><span>2 of 3</span><span class="sent">sent</span><span>Sample Co B</span><span>1 of 3</span><span class="stop">replied</span><span>Sample Co C</span><span>—</span><span class="stop">unsub</span></div></div>
+        <span class="go-link"><span>sheets-outbound-sequencer</span><span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DESIGN -->
+  <section class="wrap sec" id="design" aria-labelledby="design-h">
+    <div class="sec-head">
+      <p class="eyebrow">Design</p>
+      <h2 id="design-h">Trained as a designer. <span class="serif">It shows in the systems.</span></h2>
+      <p>I studied interior design and spent three years designing and running fit-out projects. Layout, light, materials and how people move through a space. The same skills make a CRM screen a rep can read in two seconds.</p>
+    </div>
+
+    <div class="gallery" style="margin-bottom:var(--gap)">
+      <div class="t w4 sand rv">
+        <p class="lbl">Credentials</p>
+        <ul class="spec" style="margin-top:1rem">
+          <li><span>Degree</span><span>BA Interior Design (Hons)</span></li>
+          <li><span>School</span><span>Vega School, 2020</span></li>
+          <li><span>2020–2023</span><span>Designer and project manager, fit-out</span></li>
+          <li><span>Now</span><span>UI/UX for sales tools</span></li>
+        </ul>
+      </div>
+      <figure class="shot w8 rv">
+        <button type="button" data-lb="img/design/interior-1.webp" data-cap="Kitchen I designed: a long island under a suspended light frame.">
+          <img src="img/design/interior-1.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Kitchen interior designed by Ryno: long stone island, dark joinery and a suspended rectangular light frame">
+        </button>
+        <figcaption>Kitchen, island and light frame<span>Interior · my design</span></figcaption>
+      </figure>
+      <figure class="shot w6 rv">
+        <button type="button" data-lb="img/design/interior-2.webp" data-cap="Same kitchen at golden hour: tall joinery, lit niches, open shelving and a veined stone splashback.">
+          <img src="img/design/interior-2.webp" width="1376" height="768" loading="lazy" decoding="async" alt="The same kitchen at golden hour: tall dark joinery, lit niche shelves, open shelving and a veined stone island">
+        </button>
+        <figcaption>Golden-hour view<span>Interior · my design</span></figcaption>
+      </figure>
+      <figure class="shot w6 rv">
+        <button type="button" data-lb="img/design/interior-3.webp" data-cap="A second kitchen: oak and charcoal joinery with a matching island.">
+          <img src="img/design/interior-3.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Kitchen with light oak and charcoal cabinets and a charcoal island">
+        </button>
+        <figcaption>Oak and charcoal kitchen<span>Interior · my design</span></figcaption>
+      </figure>
+    </div>
+    <p class="muted" id="interior-note" style="font-size:.85rem;margin:0 0 2.2rem">Interior images re-rendered with AI from my original 3D models; the layouts and materials are my design.</p>
+
+    <div class="sec-head" style="margin-bottom:1.2rem">
+      <h3 style="font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.03em">UI concepts</h3>
+      <p>Screens I designed and built in HTML and CSS for this site. Concept work with fictional data, not client work.</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot w7 rv">
+        <button type="button" data-lb="img/design/concept-crm.webp" data-cap="Concept: a CRM lead view that shows the score, the reasons for it, the owner and the reply clock on one screen.">
+          <img src="img/design/concept-crm.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Concept CRM lead view with a lead score ring, score reasons, activity timeline and a reply countdown">
+        </button>
+        <figcaption>CRM lead view<span>Concept</span></figcaption>
+      </figure>
+      <figure class="shot w5 rv">
+        <button type="button" data-lb="img/design/concept-mobile.webp" data-cap="Concept: a mobile lead form, the confirmation that names the rep, and the rep's alert.">
+          <img src="img/design/concept-mobile.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Three phone screens: a lead form, a confirmation naming the rep, and a Slack alert to the rep">
+        </button>
+        <figcaption>Mobile lead capture<span>Concept</span></figcaption>
+      </figure>
+      <figure class="shot w12 wide rv" style="grid-column:1/-1">
+        <button type="button" data-lb="img/design/concept-dash.webp" data-cap="Concept: a pipeline health dashboard using the Revenue Leak Engine's synthetic numbers.">
+          <img src="img/design/concept-dash.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Pipeline health dashboard concept: $881,884 leaking, leak by type bars and a fix-first list">
+        </button>
+        <figcaption>Pipeline health dashboard<span>Concept · synthetic data</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="wrap sec" id="services" aria-labelledby="svc-h">
+    <div class="sec-head">
+      <p class="eyebrow">What I do</p>
+      <h2 id="svc-h">Four things, <span class="serif">done properly.</span></h2>
+    </div>
+    <div class="bento">
+      <div class="t s3 svc rv"><span class="num">01</span><h3>GTM engineering and RevOps</h3><p>Lead routing, speed to lead, CRM hygiene and reporting that ranks problems by money at risk.</p></div>
+      <div class="t s3 sand svc rv"><span class="num">02</span><h3>CRM builds</h3><p>Salesforce Apex and Flow with tests. HubSpot pipelines, properties and API work.</p></div>
+      <div class="t s3 lav svc rv"><span class="num">03</span><h3>AI automation with Claude</h3><p>LLM workflows measured against a test set, MCP servers, and a person approving what goes out.</p></div>
+      <div class="t s3 terra svc rv"><span class="num">04</span><h3>UI/UX and visual design</h3><p>Dashboards, CRM screens and forms that a rep or a buyer can read at a glance.</p></div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="wrap sec" id="background" aria-labelledby="bg-h">
+    <div class="bento">
+      <div class="t s5 rv">
+        <p class="eyebrow">Background</p>
+        <h2 id="bg-h" style="font-size:clamp(2rem,4.4vw,3rem);line-height:1;margin-top:.8rem">Designer, then seller, <span class="serif">now builder.</span></h2>
+        <p class="muted" style="margin:1rem 0 0">I carried a target before I built systems for one. I know what a rep needs at 9 am, because I was the rep. HubSpot Sales Hub certified.</p>
+      </div>
+      <div class="t s7 rv">
+        <ol class="tl">
+          <li><span class="when">2026</span><div><h3>GTM engineering</h3><p>Sales systems with Claude Code: a CRM workstation in Node.js, outbound sequences, Salesforce and n8n routing, and AI agents that draft while a person approves every send.</p></div></li>
+          <li><span class="when">3 years</span><div><h3>Buyer, high-volume sales</h3><p>Top 20 of 450 nationally. Named Lead Buyer twice and never missed a monthly target. 22% lead-to-close, 35% above the national average, after I tracked my own funnel and fixed speed to lead and follow-up.</p></div></li>
+          <li><span class="when">2020–2023</span><div><h3>Designer and project manager, fit-out</h3><p>Designed spaces and ran the projects that built them: budgets, suppliers and site teams.</p></div></li>
+          <li><span class="when">2020</span><div><h3>BA Interior Design (Hons)</h3><p>Vega School.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="wrap sec" id="contact" aria-labelledby="contact-h">
+    <div class="bento">
+      <div class="t s8 sand cta rv">
+        <p class="lbl">Contact</p>
+        <h2 id="contact-h">Hiring for GTM engineering, RevOps or sales systems? <span class="serif">Let's talk.</span></h2>
+        <div class="btns">
+          <a class="btn" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">Message me on LinkedIn <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://github.com/RynoJor" rel="noopener">GitHub <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="t s4 lav cta rv">
+        <p class="lbl">Where and when</p>
+        <div>
+          <p style="font-size:1.5rem;letter-spacing:-.02em;line-height:1.2;margin:0">Pretoria, South Africa<br>UTC+2, open to remote</p>
+          <div class="chips" style="margin-top:1rem"><span class="chip">UK hours</span><span class="chip">EU hours</span><span class="chip">US Eastern hours</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="wrap">
-  <p>Ryno Jordaan · Pretoria, South Africa · Plain HTML and CSS, no tracking.</p>
+<footer>
+  <div class="wrap">
+    <span>Ryno Jordaan · Pretoria, South Africa</span>
+    <span>Hand-written HTML, CSS and JS. No tracking.</span>
+  </div>
 </footer>
+
+<dialog class="lb" id="lb" aria-label="Image viewer">
+  <button class="x" type="button" id="lbClose" aria-label="Close">✕</button>
+  <img id="lbImg" src="" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script src="site.js" defer></script>
 </body>
 </html>
