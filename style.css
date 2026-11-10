@@ -186,3 +186,8 @@ td.num { white-space: nowrap; font-weight: 600; }
 @media (prefers-reduced-motion: no-preference) {
   .btn { transition: background-color 0.15s, color 0.15s; }
 }
+
+/* more projects list */
+.ledger.more a.fig { font-size: 1.1rem; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.ledger.more a.fig:hover { color: var(--accent); }
+@media (min-width: 40rem) { .ledger.more li { grid-template-columns: 14rem 1fr; } }
