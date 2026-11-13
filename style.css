@@ -341,3 +341,29 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;
 @media (max-width:22rem){.bar nav a.gh span{display:none}}
 .mark span{white-space:nowrap}
 @media (max-width:30rem){.bar nav a[href$="#demo"]{display:none}.bar nav{gap:.4rem}}
+
+/* cockpit case study: who owns which fact */
+.article .tag-real{color:var(--ok);margin:0 0 .9rem}
+.article code{font:500 .88em var(--mono);background:var(--tile-2);border:1px solid var(--line);border-radius:6px;padding:.05em .35em;color:var(--text)}
+.owners{margin:2rem 0;display:grid;gap:0}
+.own-row{display:grid;gap:.6rem;grid-template-columns:repeat(4,1fr)}
+.own{border-radius:var(--r-sm);background:var(--tile);border:1px solid var(--line);padding:.95rem 1rem;display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.article .own h3{margin:0;font-size:1rem;font-weight:600}
+.article .own p{margin:0;font-size:.9rem;line-height:1.45;color:var(--muted)}
+.own .how{margin-top:auto;font:500 .66rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.07em;color:var(--lav)}
+.own.core{background:var(--sand);border-color:var(--sand)}
+.article .own.core h3,.article .own.core p{color:var(--ink)}
+.article .own.core .derived{color:var(--ink-muted)}
+.article .own.core strong{color:var(--ink)}
+.own.wall{background:var(--terra);border-color:var(--terra)}
+.article .own.wall h3,.article .own.wall p{color:var(--terra-ink)}
+.own-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;height:2rem}
+.own-flow.one{grid-template-columns:1fr}
+.own-flow span{position:relative}
+.own-flow span::before{content:"";position:absolute;left:50%;top:0;bottom:6px;width:1px;background:var(--dim)}
+.own-flow span::after{content:"";position:absolute;left:calc(50% - 5px);bottom:0;border:5px solid transparent;border-top:6px solid var(--dim);border-bottom:0}
+@media (max-width:40rem){
+  .own-row{grid-template-columns:1fr 1fr}
+  .own-flow{grid-template-columns:1fr}
+  .own-flow span:not(:first-child){display:none}
+}

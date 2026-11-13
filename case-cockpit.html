@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case study: The Cockpit, the CRM I ran my business from · Ryno Jordaan</title>
+<meta name="description" content="The Cockpit: a one-screen CRM I built and ran my own sales consultancy from. Eight stages, one owner per fact, 707 tests, and no route that can send an email.">
+<meta name="author" content="Ryno Jordaan">
+<link rel="canonical" href="https://rynojor.github.io/case-cockpit.html">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rynojor.github.io/case-cockpit.html">
+<meta property="og:title" content="Case study: The Cockpit">
+<meta property="og:description" content="The CRM I built and ran my own sales consultancy from. Who owns which fact, what it refuses to do, and what broke.">
+<meta property="og:image" content="https://rynojor.github.io/img/work/cockpit-today.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="The Cockpit's Today screen: the next box to tick for every person, most urgent first">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23d3cbb7'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%2315130f' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/InstrumentSans-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="curves" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><path d="M-80 640C260 520 420 860 760 760s520-420 780-300"/><path d="M-40 120c300 120 520-60 760 60s420 420 760 380"/></svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="./"><i>RJ</i><span>Ryno Jordaan</span></a>
+    <nav aria-label="Main">
+      <a href="./#demo" class="keep">Demo</a>
+      <a href="./#work">Work</a>
+      <a href="case-study.html">Case study</a>
+      <a href="case-cockpit.html" aria-current="page">Cockpit</a>
+      <a href="https://github.com/RynoJor" class="gh keep" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+      <a href="./#contact" class="hire">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="article">
+  <a class="back" href="./#work">← Back to work</a>
+  <p class="eyebrow tag-real">Real system · used to run a business</p>
+  <h1>The Cockpit</h1>
+  <p class="standfirst">The CRM I built for my own sales consultancy and ran it from, September to November 2026. One screen, eight stages, one owner for every fact, and no route in the code that can send an email.</p>
+  <p class="meta">Node.js · no framework · Gmail and Calendar APIs, read-only · Cloudflare Tunnel and Access · code private</p>
+
+  <div class="hero-figs">
+    <div><b>101</b><span>automatic restarts by the keeper, 3 Sep to 13 Nov 2026, none by hand</span></div>
+    <div><b>22.7 s → 0.9 s</b><span>main screen load, once it stopped waiting on every source</span></div>
+    <div><b>707</b><span>tests, all passing, run against a scratch data folder</span></div>
+  </div>
+
+  <h2 data-n="01">The problem</h2>
+  <p>I ran Reclaim Sales on my own. It fixes how small trade businesses answer and follow up their enquiries. Before that I sold, and finished in the top 20 of 450 buyers nationally, in a high-volume sales environment. So I knew where deals die: the reply that goes out three hours late, the proposal nobody chases on day four, the client handed over before the balance is paid.</p>
+  <p>A one-person business has all of those leaks and nobody to catch them. Enquiries arrived by email, the website form, Cal.com bookings and WhatsApp. The steps for each package lived in my notes. The money terms lived in my head. I needed one screen that told me the next thing to do for every person, and why.</p>
+
+  <h2 data-n="02">What I built</h2>
+  <p>A local web app that runs on my own machine and is reached through a Cloudflare tunnel. The work is organised around people moving through stages, not around tools.</p>
+  <ul>
+    <li><strong>Today.</strong> The next box to tick for every person, most urgent first, each with the reason. Red means a time rule has passed, such as an enquiry waiting more than one business hour.</li>
+    <li><strong>Enquiries.</strong> Everyone not yet signed, and who is waiting on whom, worked out from the mailbox: <em>on us</em> when their mail came last, <em>on them</em> when ours did.</li>
+    <li><strong>Pipeline.</strong> Eight stages as columns, from New enquiry to Monthly, with Not now and Lost to the side. Drag a card forward and the server checks the gate. If a needed box is open, the card snaps back and names it.</li>
+    <li><strong>Clients.</strong> Everyone from Signed onwards, with package, monthly fee and progress through setup.</li>
+    <li><strong>Mailbox.</strong> The business inbox, Inbox and Sent, last 30 days, read-only. Every message is matched to a person. Anyone who wrote and has no record goes to Pending.</li>
+  </ul>
+  <p>Every stage is a checklist: 43 boxes across seven stages, 37 of them needed before a record can move on. The boxes are not typed in the code. They are read from a note in my Obsidian vault, so changing the note changes the work on the next load.</p>
+
+  <figure>
+    <img src="img/work/cockpit-today.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Today screen: four counts at the top, then a list of next boxes to tick, each with a red, amber or grey dot and the reason, and today's diary on the right">
+    <figcaption>Today. Red dots are broken time rules: a reply past one business hour, a day-12 chase not sent. Invented records from the app's test harness; no real person appears.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/work/cockpit-pipeline.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Pipeline screen: stage columns from New enquiry to Week 1 Diagnostic, each card showing its package, progress through the stage and next box">
+    <figcaption>Pipeline. Each card shows its progress through the stage and the next box. Invented records.</figcaption>
+  </figure>
+
+  <h2 data-n="03">How it joins up</h2>
+  <p>The rule I built it on: <strong>one owner per fact</strong>. The Cockpit keeps no second copy of anything it does not own. If two places hold the same fact, one of them is wrong.</p>
+
+  <div class="owners" role="group" aria-label="Which system owns which fact">
+    <div class="own-row">
+      <section class="own" aria-labelledby="o-vault">
+        <h3 id="o-vault">Obsidian vault</h3>
+        <p>Stage checklists, package steps and prices. Delivery documents per client.</p>
+        <span class="how">read · two guarded writes</span>
+      </section>
+      <section class="own" aria-labelledby="o-gmail">
+        <h3 id="o-gmail">Gmail</h3>
+        <p>Every message. Who wrote last, so who is waiting.</p>
+        <span class="how">read-only</span>
+      </section>
+      <section class="own" aria-labelledby="o-cal">
+        <h3 id="o-cal">Google Calendar</h3>
+        <p>Calls and bookings, including Cal.com.</p>
+        <span class="how">read-only</span>
+      </section>
+      <section class="own" aria-labelledby="o-sheet">
+        <h3 id="o-sheet">Master sheet</h3>
+        <p>Researched businesses nobody has contacted. A backup now.</p>
+        <span class="how">read by the duplicate check</span>
+      </section>
+    </div>
+    <div class="own-flow" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <section class="own core" aria-labelledby="o-cockpit">
+      <h3 id="o-cockpit">The Cockpit</h3>
+      <p>One record per person: details, package, stage, every tick with its date, history, opt-out. Planner blocks. An append-only audit log.</p>
+      <p class="derived"><strong>Derived, never stored:</strong> the next action, who is waiting on whom, who is Pending. Nothing derived can go stale.</p>
+    </section>
+    <div class="own-flow one" aria-hidden="true"><span></span></div>
+    <section class="own wall" aria-labelledby="o-wall">
+      <h3 id="o-wall">Approving is not sending</h3>
+      <p>No route sends email, publishes, spends or contacts anyone. A reply or a setup link is copied out and sent by hand. Ticking “First reply sent” records that I did it.</p>
+    </section>
+  </div>
+
+  <h3>The gate runs on the server</h3>
+  <p>A record moves forward only when every needed box of its stage is ticked, and of every stage it would jump over. A signed stage needs a package. Monthly also needs “Balance received”: nothing is handed over until the balance clears. The browser only asks. Moving back, or to Not now or Lost, is always allowed and needs a reason, which goes on the record.</p>
+
+  <figure>
+    <img src="img/work/cockpit-record.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="A record's Work tab: earlier stages closed as done, the Proposal sent stage open with two ticked boxes dated, three open boxes with Plan it buttons, and a yellow gate message naming the box still needed before Signed">
+    <figcaption>A record's Work tab. Ticks carry their date. The yellow line is the gate naming the one box still needed. Invented record.</figcaption>
+  </figure>
+
+  <h3>When a source fails, it says so</h3>
+  <ul>
+    <li>A checklist note that cannot be read puts a red line on every screen and that stage shows no boxes. No remembered list is used.</li>
+    <li>A mailbox that cannot be read is a failure, never an empty inbox. “Waiting on” shows <em>not known</em>, not “on them”.</li>
+    <li>A sheet that cannot be read still lets me add a person, checked against the records only, and the confirmation says so.</li>
+    <li>Two writes that race are refused by a revision check and retried. A file present but unreadable is a fault, never treated as empty.</li>
+  </ul>
+
+  <h2 data-n="04">What broke, and the fix</h2>
+  <h3>The main screen waited on the slowest source</h3>
+  <p>The old overview loaded every source at once and painted when the last one answered. The inbox read alone took 19.9 s cold, so the screen took 22.7 s. First I moved the day's task list to a background build at boot and 05:00, because generating it took about six seconds. Then I gave every slow source a deadline and a cache, and let the page paint from local disk first. Measured on 5 Sep 2026: the overview came back in 0.9 s once the mailbox was cached, and with Gmail made to hang on purpose, Today still answered in 3 to 4 ms. The rebuilt CRM keeps the rule: the main read never waits on Gmail or the calendar. Those load after the page has drawn.</p>
+
+  <h3>The public address kept going down</h3>
+  <p>Cloudflare showed Error 1033, which means the tunnel has no connection. The script meant to restart it had three faults. It read the tunnel token inside a batch block, where variables expand when the block is parsed, so the tunnel started with an empty token. It checked for a running <code>node.exe</code>, and this machine always has several unrelated ones. Its sleep command fails with no console attached, which is how a background task runs. Its comment said it was a scheduled task. It never was.</p>
+  <p>I replaced it with a PowerShell keeper that checks the port and a health route every 60 seconds and restarts what is down. A named lock stops two copies running. I tested it by killing the processes and by a real reboot. Its log shows 101 automatic restarts between 3 September and 13 November 2026: 31 tunnel, 70 server.</p>
+
+  <h3>Every calendar day was one day early</h3>
+  <p>Day keys were built with <code>toISOString().slice(0, 10)</code>. South Africa is UTC+2, so local midnight is 22:00 the day before in UTC, and every label slipped back a day. The fix: format dates in the business time zone, and name that zone once in the store so every daily boundary uses it. Ticks, the planner week, the chase ladder, test days and the monthly list all run on <code>Africa/Johannesburg</code> business time.</p>
+
+  <h3>Expenses read from receipts gave a plausible wrong number</h3>
+  <p>The first scan of billing mail produced totals that looked right and were not. The rules that fixed it:</p>
+  <ul>
+    <li>A known vendor is not enough. A trial-ending notice quoting a price is not a charge. The mail must also show that money moved.</li>
+    <li>Match the vendor by name in the subject, not only the sender, because many receipts come from a payment processor.</li>
+    <li>Give each vendor a period: monthly, annual or usage. An annual fee read as monthly is a large error.</li>
+    <li>Keep annual fees out of the monthly figure, in their own section.</li>
+    <li>Treat domains as annual, and confirm a registration from two mails sent within two days of each other.</li>
+    <li>Drop nothing silently. Billing mail with no readable amount is listed for a person to check.</li>
+  </ul>
+  <p>The lesson I kept: when a number comes from parsing someone else's email, it fails as a believable wrong number, not as no data.</p>
+
+  <h2 data-n="05">What I cut, and why</h2>
+  <p>The first version was a dashboard of business areas: outreach, sales, inbox, marketing, finance, agents. On 20 October 2026 I decided it was organised wrong. The work is people moving through stages. So I rebuilt it in place, with the same server, login and address, and cut hard. The rebuild deleted 21,488 lines from tracked files.</p>
+  <ul>
+    <li><strong>Instantly and cold outreach.</strong> When the business moved to the South African market, the cold-email platform had no use there. I cancelled it, then removed its code, routes, tests and the warmup gate. The opt-out rules survived and moved onto the record. An opt-out is never undone.</li>
+    <li><strong>The prospect sheet as a working list.</strong> It only ever held cold-email prospects. It is now a backup, read only to catch duplicates when I add someone.</li>
+    <li><strong>Six AI drafting agents, paused.</strong> They drafted, I approved, nothing sent. They were not drafting well enough to be worth running, so one flag switched them off and every past run was kept. The CRM screens call no model at all, and records are never sent to one.</li>
+    <li><strong>Marketing, expenses and AI ops, hidden.</strong> Off the menu, code kept, for later. Money, the general to-do list and social media are out of scope until the core works.</li>
+  </ul>
+  <p>The approval queue for the agents has the states <em>draft, reviewed, approved, confirmed sent by a person</em>. There is no <em>executed</em> state on purpose. Anything wired up later has to go behind a person's confirmation, never behind an approval.</p>
+
+  <h2 data-n="06">Stack</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>Counted from the code on 13 Nov 2026.</caption>
+      <thead><tr><th scope="col">Part</th><th scope="col">What</th></tr></thead>
+      <tbody>
+        <tr><td>Server</td><td>Node.js 20, no framework, two dependencies. 63 routes, 18 of them for the CRM.</td></tr>
+        <tr><td>Screens</td><td>Plain HTML, CSS and JavaScript. Native HTML5 drag and drop for the pipeline and the weekly planner. Every value escaped before it is drawn.</td></tr>
+        <tr><td>Storage</td><td>JSON files with schema stamps, atomic writes and revision checks. An append-only audit log of every tick, move and edit.</td></tr>
+        <tr><td>Google</td><td>Gmail and Calendar APIs, read-only, through OAuth on the business's own Workspace. Sheets for the duplicate check.</td></tr>
+        <tr><td>Access</td><td>Bound to 127.0.0.1. A Cloudflare tunnel connects outward; Cloudflare Access is the login. The server checks the Access token itself before any route, and fails closed.</td></tr>
+        <tr><td>Uptime</td><td>A PowerShell keeper started at logon, single-instance, with a health check script.</td></tr>
+        <tr><td>Tests</td><td>707 tests on <code>node:test</code>, including one per stage for the next-action rules. A wrapper points them at a temporary data folder, so a test can never touch real records.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 data-n="07">Honest limits</h2>
+  <ul>
+    <li>It was built for one user, me. When this was written it held four real records, all enquiries. No paying client has gone through all eight stages in it yet.</li>
+    <li>The screenshots come from its test harness: invented people on <code>.test</code> addresses and a faked calendar. The real screens hold real people's details, so I will not show them.</li>
+    <li>The code stays private for the same reason. I can walk through it on a call.</li>
+    <li>The speed figures are single samples on one machine, not a percentile.</li>
+    <li>The Facebook and Instagram notification patterns were written from Meta's sender domains and have not been checked against a real message.</li>
+  </ul>
+
+  <h2 data-n="08">What I'd do next</h2>
+  <ul>
+    <li>Switch on WhatsApp. The webhook is built and tested, with signature checks and 30-day deletion; it waits on Meta's business verification.</li>
+    <li>Track “waiting on” per conversation, not per person. Two open threads with one client read as one today.</li>
+    <li>Move the JSON stores to SQLite once there are more than a few hundred records.</li>
+    <li>Run the suite in CI on every change, not just on my machine.</li>
+    <li>Rebuild the drafting agents against real replies, with a review score, before turning them back on.</li>
+  </ul>
+
+  <div class="endcta actions">
+    <a class="btn light" href="case-study.html">Read the Revenue Leak Engine case study</a>
+    <a class="btn" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">Message me on LinkedIn <span class="arr" aria-hidden="true">↗</span></a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Ryno Jordaan · Pretoria, South Africa</span>
+    <span>Hand-written HTML and CSS. No tracking.</span>
+  </div>
+</footer>
+</body>
+</html>
