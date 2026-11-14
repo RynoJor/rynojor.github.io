@@ -58,6 +58,109 @@
   drawClock();
   setInterval(drawClock, 30000);
 
+  /* ---------- Hero ledger: leads run through a pipe and drip into the bars ---------- */
+  const cv = $('#drip');
+  if (cv && bars && !reduce && cv.getContext) {
+    const ctx = cv.getContext('2d');
+    const SHARE = [1, .438, .188, .187, .092, .037];   // bar heights, same as the markup
+    const LEAK = [.42, .26, .15, .15, .1, .06];        // chance a lead drops out at each hole
+    const PY = 11, R = 5, GAP = 8;
+    let W = 0, H = 0, pad = 0, colW = 0, dots = [], drops = [], seen = false, raf = 0, last = 0, since = 0;
+    const cx = i => i * (colW + GAP) + colW / 2;
+    const size = () => {
+      const r = cv.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+      W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+      pad = parseFloat(getComputedStyle(bars).paddingTop) || 0; colW = (W - GAP * 5) / 6;
+    };
+    const frame = t => {
+      raf = 0;
+      const k = Math.min(3, (t - last) / 16.7 || 1); last = t;
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = 'rgba(21,19,15,.5)'; ctx.lineWidth = 1.5; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(0, PY - R); ctx.lineTo(W, PY - R);
+      let x0 = 0;
+      for (let i = 0; i < 6; i++) { ctx.moveTo(x0, PY + R); ctx.lineTo(cx(i) - 4, PY + R); x0 = cx(i) + 4; }
+      ctx.moveTo(x0, PY + R); ctx.lineTo(W, PY + R); ctx.stroke();
+      since += k;
+      if (since > 9) { since = 0; dots.push({ x: -4, next: 0 }); }
+      ctx.fillStyle = '#15130f';
+      dots = dots.filter(d => {
+        d.x += 1.25 * k;
+        if (d.next < 6 && d.x >= cx(d.next)) {
+          const i = d.next++;
+          if (Math.random() < LEAK[i]) { drops.push({ i, y: PY + R, v: .4 }); return false; }
+        }
+        ctx.globalAlpha = .75; ctx.beginPath(); ctx.arc(d.x, PY, 2, 0, 6.3); ctx.fill();
+        return d.x < W + 4;
+      });
+      ctx.globalAlpha = 1;
+      drops = drops.filter(d => {
+        d.v += .22 * k; d.y += d.v * k;
+        const top = H - SHARE[d.i] * (H - pad);
+        if (d.y >= top - 2) return false;
+        ctx.beginPath(); ctx.ellipse(cx(d.i), d.y, 2, 2 + Math.min(3, d.v * .5), 0, 0, 6.3); ctx.fill();
+        return true;
+      });
+      if (seen && !document.hidden) raf = requestAnimationFrame(frame);
+    };
+    const kick = () => { if (!raf && seen && !document.hidden) { last = performance.now(); raf = requestAnimationFrame(frame); } };
+    size();
+    if ('ResizeObserver' in window) new ResizeObserver(size).observe(cv);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { seen = es[0].isIntersecting; kick(); }).observe(cv);
+    else { seen = true; kick(); }
+    document.addEventListener('visibilitychange', kick);
+  }
+
+  /* ---------- Header: scroll progress, current section, mobile menu ---------- */
+  const prog = $('#progress');
+  if (prog) {
+    let tick = false;
+    const draw = () => { tick = false; const h = document.documentElement; prog.style.transform = `scaleX(${Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight))})`; };
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(draw); } }, { passive: true });
+    draw();
+  }
+  const navLinks = $$('.bar nav a[href^="#"]');
+  if (navLinks.length && 'IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(a => a.getAttribute('href') === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+    }), { rootMargin: '-40% 0px -55% 0px' });
+    navLinks.forEach(a => { const sec = $(a.getAttribute('href')); if (sec) spy.observe(sec); });
+  }
+  const menuBtn = $('#menuBtn'), sheet = $('#sheet');
+  if (menuBtn && sheet) {
+    const setMenu = open => { sheet.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu'); };
+    menuBtn.addEventListener('click', () => setMenu(sheet.hidden));
+    sheet.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) { setMenu(false); menuBtn.focus(); } });
+  }
+
+  /* ---------- Work: filter by tool ---------- */
+  const grid = $('#workGrid'), fBtns = $$('#filters .preset');
+  if (grid && fBtns.length) {
+    const items = $$('[data-tags]', grid);
+    const has = (el, f) => f === 'all' || el.dataset.tags.split(' ').includes(f);
+    fBtns.forEach(b => {
+      const f = b.dataset.f;
+      b.insertAdjacentHTML('beforeend', `<small>${items.filter(x => has(x, f)).length}</small>`);
+      b.addEventListener('click', () => {
+        fBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        let shown = 0;
+        items.forEach(x => { const ok = has(x, f); x.hidden = !ok; if (ok) { shown++; x.classList.add('in'); } });
+        grid.classList.toggle('filtered', f !== 'all');
+        $('#filterMsg').textContent = `Showing ${shown} of ${items.length} builds`;
+      });
+    });
+  }
+
+  /* ---------- Work: Cockpit screen switcher ---------- */
+  const cTabs = $$('#cockpitTabs button'), cImg = $('#cockpitImg');
+  cTabs.forEach(b => b.addEventListener('click', () => {
+    cTabs.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    cImg.src = b.dataset.src; cImg.alt = b.dataset.alt;
+    $('#cockpitCap').textContent = 'the cockpit · ' + b.dataset.cap;
+  }));
+
   /* ---------- Scroll reveal ---------- */
   const rv = $$('.rv');
   if ('IntersectionObserver' in window && !reduce) {
@@ -319,6 +422,57 @@
     btn.disabled = false;
     busy = false;
   }
+
+  /* Burst: 50 made-up leads through the same router, to show the load balancing */
+  const rnd = a => a[Math.floor(Math.random() * a.length)];
+  const FN = ['Nina', 'Owen', 'Zanele', 'Lukas', 'Aisha', 'Pieter', 'Chloe', 'Mateo', 'Ingrid', 'Kagiso', 'Hannah', 'Rafael'];
+  const SN = ['Fischer', 'Mokoena', 'Hughes', 'Rossi', 'Novak', 'Botha', 'Okoye', 'Lindqvist', 'Carver', 'Dube', 'Moreau', 'Keane'];
+  const C1 = ['Harbour', 'Quill', 'Ember', 'Northwind', 'Saffron', 'Tessel', 'Bramble', 'Cinder', 'Lumen', 'Fathom', 'Juniper', 'Marlow'];
+  const C2 = ['Logistics', 'Systems', 'Foods', 'Dental', 'Labs', 'Energy', 'Studio', 'Freight', 'Software', 'Clinics'];
+  function randomLead() {
+    const roll = Math.random();
+    if (roll < .08) return { ...PRESETS.junk };
+    if (roll < .18 && crm.length) { const r = rnd(crm); return { name: r.name, company: r.co, email: r.email, region: 'EU', size: '3', src: 'pricing' }; }
+    const fn = rnd(FN), co = rnd(C1) + ' ' + rnd(C2);
+    const dom = roll < .28 ? 'gmail.com' : co.toLowerCase().replace(/ /g, '') + '.com';
+    return { name: fn + ' ' + rnd(SN), company: co, email: fn.toLowerCase() + '@' + dom, region: rnd(['UK', 'UK', 'EU', 'EU', 'USE', 'USE', 'ZA', 'ROW']), size: String(1 + Math.floor(Math.random() * 5)), src: rnd(['demo', 'pricing', 'webinar', 'ebook']) };
+  }
+  async function burst() {
+    if (busy) return;
+    busy = true;
+    const btn = $('#burstBtn'), go = $('#goBtn'), N = 50;
+    btn.disabled = go.disabled = true;
+    clearStages();
+    $$('.preset[data-p]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    $('#r-title').textContent = 'Routing 50 leads…'; $('#r-sub').textContent = 'Made-up names and companies'; $('#r-av').textContent = '…'; $('#r-why').textContent = '';
+    const n = { reps: 0, merged: 0, nurture: 0, reject: 0 };
+    let ms = 0, scoreSum = 0, scored = 0;
+    for (let i = 0; i < N; i++) {
+      const lead = randomLead(), t0 = performance.now();
+      const res = route(lead, reps, crm);
+      ms += performance.now() - t0;
+      const dupHit = res.steps.dedupe && res.steps.dedupe.tag === 'duplicate';
+      if (res.score != null) { scoreSum += res.score; scored++; }
+      if (res.final.kind === 'reject') n.reject++;
+      else if (res.final.kind === 'nurture') n.nurture++;
+      else { repById(res.owner).load++; dupHit ? n.merged++ : n.reps++; }
+      if (res.final.kind !== 'reject' && !dupHit) { crm.unshift({ co: lead.company, name: lead.name, email: lead.email.toLowerCase(), owner: res.owner || '' }); if (crm.length > 7) crm.length = 7; }
+      if (i % 5 === 4) { renderBoard(res.owner, null); await sleep(70); }
+    }
+    const tags = [`${N - n.reject} pass`, `${n.merged} merged`, `avg ${Math.round(scoreSum / Math.max(1, scored))}`, `${n.reps + n.merged} to reps`, `${n.reps + n.merged} alerts`];
+    stages.forEach((st, i) => { st.classList.add('ok'); $('.ms', st).textContent = tags[i]; });
+    const msTxt = ms.toFixed(2) + ' ms';
+    log.unshift({ who: '50 random leads', to: `${n.reps + n.merged} to reps`, ms: msTxt });
+    renderBoard(null, null);
+    $('#r-av').textContent = '50';
+    $('#r-title').textContent = '50 leads routed';
+    $('#r-sub').textContent = `${n.reps} new to reps · ${n.merged} merged · ${n.nurture} to nurture · ${n.reject} rejected`;
+    $('#r-why').textContent = 'New leads go to the rep with the fewest open leads in the pod, so the counts level out. Duplicates go back to their owner, and 1,000+ staff go to the enterprise rep.';
+    $('#r-ms').innerHTML = ms.toFixed(2) + '<small>ms</small>';
+    btn.disabled = go.disabled = false;
+    busy = false;
+  }
+  $('#burstBtn').addEventListener('click', burst);
 
   form.addEventListener('submit', e => { e.preventDefault(); run(); });
   $$('.preset[data-p]').forEach(b => b.addEventListener('click', () => {

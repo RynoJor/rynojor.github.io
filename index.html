@@ -18,8 +18,9 @@
 <meta property="og:image:alt" content="Revenue Leak Engine dashboard: $881,884 leaking from a $1.0M pipeline">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23d3cbb7'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%2315130f' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="img/ryno-portrait.webp" as="image" type="image/webp">
 <link rel="preload" href="fonts/InstrumentSans-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261114">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
@@ -31,45 +32,57 @@
   <div class="wrap">
     <a class="mark" href="./"><i>RJ</i><span>Ryno Jordaan</span></a>
     <nav aria-label="Main">
-      <a href="#demo" class="keep">Demo</a>
+      <a href="#demo">Demo</a>
       <a href="#work">Work</a>
-      <a href="case-cockpit.html">Cockpit</a>
-      <a href="#design">Design</a>
       <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#design">Design</a>
       <a href="https://github.com/RynoJor" class="gh keep" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
       <a href="#contact" class="hire">Contact</a>
     </nav>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="sheet" aria-label="Open the menu"><i></i><i></i></button>
   </div>
+  <div class="sheet" id="sheet" hidden>
+    <a href="#demo">Try the lead router</a>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About me</a>
+    <a href="#design">Design</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <i class="progress" id="progress" aria-hidden="true"></i>
 </header>
 
 <main id="main">
 
   <!-- HERO -->
   <section class="wrap hero" aria-labelledby="name">
-    <div class="bento">
-      <div class="t s7 intro">
-        <div class="who">
-          <img src="img/ryno.jpg" width="112" height="112" alt="Ryno Jordaan">
-          <p><span class="status">Open to remote</span><br><span class="muted">Pretoria, South Africa · UTC+2</span></p>
-        </div>
+    <div class="bento hero-grid">
+      <div class="t intro">
         <div>
           <h1 id="name">Ryno <span class="serif">Jordaan</span></h1>
           <p class="role">GTM engineer: <b>sales systems, data and AI</b></p>
-          <p class="sub">I build the systems that get a lead to the right rep in milliseconds and show where pipeline money leaks. I'm also a trained designer, so people want to use what I build.</p>
+          <p class="sub">I sold first: top 20 of 450 buyers nationally. Now I build the systems that get a lead to the right rep in milliseconds and show where pipeline money leaks. I trained as a designer, so people want to use what I build.</p>
         </div>
         <div class="btns">
           <a class="btn light" href="#demo">Try the lead router <span class="arr" aria-hidden="true">↓</span></a>
           <a class="btn" href="#work">See the work</a>
-          <a class="btn" href="https://github.com/RynoJor" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub repos <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">Message me <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <div class="t s5 sand ledger" aria-labelledby="ledger-h">
+      <figure class="t portrait">
+        <img src="img/ryno-portrait.webp" width="800" height="800" alt="Ryno Jordaan, smiling, in round glasses and a dark jacket" fetchpriority="high">
+        <figcaption><span class="status">Open to remote</span><span>Pretoria, South Africa · UTC+2</span></figcaption>
+      </figure>
+
+      <div class="t sand ledger" aria-labelledby="ledger-h">
         <div class="top"><p class="lbl" id="ledger-h">Found leaking</p><p class="lbl">Revenue Leak Engine</p></div>
         <p class="big" id="leak" aria-label="$881,884">$881,884</p>
         <p class="lbl">from a $1.0M synthetic pipeline, by six automated checks</p>
         <p class="feed" id="feed" aria-hidden="true"></p>
         <div class="bars pre" id="bars" role="list" aria-label="Leak by type, in US dollars">
+          <canvas id="drip" aria-hidden="true"></canvas>
           <div class="b hot" role="listitem" tabindex="0" style="--h:100%"><em>$454,200</em><span class="v"></span><span class="sr">Stalled proposals: $454,200</span></div>
           <div class="b" role="listitem" tabindex="0" style="--h:43.8%"><em>$198,933</em><span class="v"></span><span class="sr">Weak rep conversion: $198,933</span></div>
           <div class="b" role="listitem" tabindex="0" style="--h:18.8%"><em>$85,184</em><span class="v"></span><span class="sr">Slow first response: $85,184</span></div>
@@ -182,7 +195,7 @@
       </div>
 
       <div class="t s7 reps" aria-labelledby="reps-h">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><p class="lbl" id="reps-h">Reps and open leads today</p><button type="button" class="preset" id="resetBtn">Reset</button></div>
+        <div class="tile-head"><p class="lbl" id="reps-h">Reps and open leads today</p><span class="row-btns"><button type="button" class="preset burst" id="burstBtn">Route 50 random leads</button><button type="button" class="preset" id="resetBtn">Reset</button></span></div>
         <ul class="replist" id="reps"></ul>
         <div class="crm-wrap">
           <table class="crm" aria-label="Fake CRM records used for dedupe">
@@ -217,9 +230,21 @@
     <div class="sec-head">
       <p class="eyebrow">Work</p>
       <h2 id="work-h">Ten builds. <span class="serif">One ran a real business.</span></h2>
+      <p>Each one has a number and a README that says where it would not hold. Filter by the tool you hire for.</p>
     </div>
-    <div class="bento">
-      <article class="t s12 sand flag rv" aria-labelledby="rle-h" style="grid-column:1/-1">
+    <div class="filters" id="filters" role="group" aria-label="Filter the work by tool">
+      <button type="button" class="preset" data-f="all" aria-pressed="true">All</button>
+      <button type="button" class="preset" data-f="salesforce" aria-pressed="false">Salesforce</button>
+      <button type="button" class="preset" data-f="hubspot" aria-pressed="false">HubSpot</button>
+      <button type="button" class="preset" data-f="python" aria-pressed="false">Python</button>
+      <button type="button" class="preset" data-f="ai" aria-pressed="false">AI and Claude</button>
+      <button type="button" class="preset" data-f="n8n" aria-pressed="false">n8n</button>
+      <button type="button" class="preset" data-f="node" aria-pressed="false">Node.js</button>
+      <button type="button" class="preset" data-f="sheets" aria-pressed="false">Apps Script</button>
+    </div>
+    <p class="sr" id="filterMsg" aria-live="polite"></p>
+    <div class="bento" id="workGrid">
+      <article class="t s12 sand flag rv" aria-labelledby="rle-h" style="grid-column:1/-1" data-tags="python ai">
         <div class="copy">
           <p class="lbl">Flagship · Python, pandas, Claude API, Streamlit</p>
           <h3 id="rle-h">Revenue Leak Engine</h3>
@@ -245,7 +270,7 @@
       </article>
 
 
-      <article class="t s12 lav flag rv" aria-labelledby="cockpit-h" style="grid-column:1/-1">
+      <article class="t s12 lav flag rv" aria-labelledby="cockpit-h" style="grid-column:1/-1" data-tags="node">
         <div class="copy">
           <p class="lbl">Real system · Node.js, Gmail API, Cloudflare</p>
           <h3 id="cockpit-h">The Cockpit</h3>
@@ -262,24 +287,30 @@
         </div>
         <div class="media">
           <div class="frame">
-            <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>the cockpit · today</span></div>
-            <img src="img/work/cockpit-today.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Cockpit's Today screen: the next box to tick for every person, most urgent first, with the reason for each">
+            <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span id="cockpitCap">the cockpit · today</span></div>
+            <img id="cockpitImg" src="img/work/cockpit-today.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="The Cockpit's Today screen: the next box to tick for every person, most urgent first, with the reason for each">
+          </div>
+          <div class="tabs" id="cockpitTabs" role="group" aria-label="Cockpit screens">
+            <button type="button" aria-pressed="true" data-src="img/work/cockpit-today.webp" data-cap="today" data-alt="The Cockpit's Today screen: the next box to tick for every person, most urgent first, with the reason for each">Today</button>
+            <button type="button" aria-pressed="false" data-src="img/work/cockpit-pipeline.webp" data-cap="pipeline" data-alt="The Cockpit's Pipeline screen: a card for every enquiry and client across eight stages, with boxes ticked per stage">Pipeline</button>
+            <button type="button" aria-pressed="false" data-src="img/work/cockpit-record.webp" data-cap="one record" data-alt="One person's record in the Cockpit: details, package, stage and history">One record</button>
           </div>
         </div>
       </article>
 
-      <a class="t s8 card rv" href="https://github.com/RynoJor/salesforce-lead-routing" rel="noopener">
+      <a class="t s8 card rv" href="https://github.com/RynoJor/salesforce-lead-routing" rel="noopener" data-tags="salesforce">
         <p class="lbl">Salesforce · Apex, Flow</p>
         <h3>Salesforce lead routing</h3>
         <p>200 leads routed in one transaction in about 0.8 s, with Apex, Flow and a 60-minute SLA escalation. 29 tests, 98% coverage.</p>
         <div class="shots">
           <img src="img/work/sf-routed-lead.webp" width="1400" height="1313" loading="lazy" decoding="async" alt="A routed lead in Salesforce showing its owner and routing reason">
           <img src="img/work/sf-flow-canvas.webp" width="1400" height="1215" loading="lazy" decoding="async" alt="The SLA escalation Flow on the Salesforce Flow canvas">
+          <img class="mid" src="img/work/sf-dashboard.webp" width="1400" height="875" loading="lazy" decoding="async" alt="Salesforce Speed to Lead dashboard: leads by routing reason, SLA breached against met, and average minutes to first touch by region">
         </div>
         <span class="go-link"><span>github.com/RynoJor/salesforce-lead-routing</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s4 lav card rv" href="https://github.com/RynoJor/n8n-speed-to-lead" rel="noopener">
+      <a class="t s4 lav card rv" href="https://github.com/RynoJor/n8n-speed-to-lead" rel="noopener" data-tags="n8n">
         <p class="lbl">n8n · webhooks</p>
         <h3>n8n speed-to-lead</h3>
         <p>An inbound lead validated, deduped, scored, assigned and alerted in about 160 ms. Built in n8n.</p>
@@ -287,15 +318,15 @@
         <span class="go-link"><span>n8n-speed-to-lead</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s8 card rv" href="https://github.com/RynoJor/enrichment-waterfall" rel="noopener">
+      <a class="t s8 card rv" href="https://github.com/RynoJor/enrichment-waterfall" rel="noopener" data-tags="python">
         <p class="lbl">Python · enrichment, verification</p>
         <h3>Lead enrichment waterfall</h3>
         <p>Sources tried in order until an email is good enough to send, then it stops paying. The tuned order covered 74% of 475 companies at $0.050 a lead, 35% below cheap-first. 53 tests.</p>
-        <div class="viz" style="background:#fbfbf9;padding:.5rem"><img src="img/work/waterfall-experiment.webp" width="1800" height="930" loading="lazy" decoding="async" alt="Chart comparing four waterfall orders on coverage, precision and cost per lead; the tuned order costs $0.050 a lead against $0.077 for cheap-first" style="width:100%;height:auto;border-radius:8px"></div>
+        <div class="frame paper"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>waterfall experiment · four source orders</span></div><img src="img/work/waterfall-experiment.webp" width="1800" height="930" loading="lazy" decoding="async" alt="Chart comparing four waterfall orders on coverage, precision and cost per lead; the tuned order costs $0.050 a lead against $0.077 for cheap-first"></div>
         <span class="go-link"><span>github.com/RynoJor/enrichment-waterfall</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s4 card rv" href="https://github.com/RynoJor/hubspot-pipeline-mcp" rel="noopener">
+      <a class="t s4 card rv" href="https://github.com/RynoJor/hubspot-pipeline-mcp" rel="noopener" data-tags="hubspot ai">
         <p class="lbl">MCP · HubSpot CRM API</p>
         <h3>HubSpot pipeline MCP</h3>
         <p>Ask Claude which deals are stuck. Six read-only tools over the HubSpot CRM API.</p>
@@ -303,15 +334,15 @@
         <span class="go-link"><span>hubspot-pipeline-mcp</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s8 card rv" href="https://github.com/RynoJor/pipeline-forecast" rel="noopener">
+      <a class="t s8 card rv" href="https://github.com/RynoJor/pipeline-forecast" rel="noopener" data-tags="python">
         <p class="lbl">Python · forecasting, deal risk</p>
         <h3>Pipeline forecast</h3>
         <p>Scores every open deal on its chance of slipping, says why in plain words, and rolls it up into the quarter. On three held-out quarters it was off by 5.6%, against 13.2% for the CRM's stage-weighted forecast and 22.8% for rep commit.</p>
-        <div class="viz" style="background:#fff;padding:.5rem"><img src="img/work/forecast-vs-actual.webp" width="1800" height="660" loading="lazy" decoding="async" alt="Forecast vs actual bookings for three held-out quarters: the slip model tracks the actual line closely, stage-weighted runs high and rep commit runs low" style="width:100%;height:auto;border-radius:8px"></div>
+        <div class="frame paper"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>forecast vs actual · three held-out quarters</span></div><img src="img/work/forecast-vs-actual.webp" width="1800" height="660" loading="lazy" decoding="async" alt="Forecast vs actual bookings for three held-out quarters: the slip model tracks the actual line closely, stage-weighted runs high and rep commit runs low"></div>
         <span class="go-link"><span>github.com/RynoJor/pipeline-forecast</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s4 terra card rv" href="https://github.com/RynoJor/crm-migration" rel="noopener">
+      <a class="t s4 terra card rv" href="https://github.com/RynoJor/crm-migration" rel="noopener" data-tags="hubspot salesforce python">
         <p class="lbl">HubSpot → Salesforce · Python</p>
         <h3>CRM migration</h3>
         <p>Map, clean, dedupe, dry-run, load and reconcile. Caught 150 of 152 planted problems, and the pipeline value lands to the cent. Tested on a real Salesforce org.</p>
@@ -319,7 +350,7 @@
         <span class="go-link"><span>crm-migration</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s6 card rv" href="https://github.com/RynoJor/job-hunt-pipeline" rel="noopener">
+      <a class="t s6 card rv" href="https://github.com/RynoJor/job-hunt-pipeline" rel="noopener" data-tags="python">
         <p class="lbl">Python · scraping, filters</p>
         <h3>Job hunt pipeline</h3>
         <p>My job hunt run like outbound: 1,014 "remote" ads scanned, 63% not open to South Africa.</p>
@@ -327,13 +358,65 @@
         <span class="go-link"><span>job-hunt-pipeline</span><span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="t s6 sand card rv" href="https://github.com/RynoJor/sheets-outbound-sequencer" rel="noopener">
+      <a class="t s6 sand card rv" href="https://github.com/RynoJor/sheets-outbound-sequencer" rel="noopener" data-tags="sheets">
         <p class="lbl">Google Sheets · Apps Script</p>
         <h3>Sheets outbound sequencer</h3>
         <p>Cold email from Google Sheets and Apps Script, with send caps, stop-on-reply and unsubscribe.</p>
         <div class="viz" aria-hidden="true" style="background:var(--ink)"><div class="sheet"><span class="h">Prospect</span><span class="h">Step</span><span class="h">Status</span><span>Sample Co A</span><span>2 of 3</span><span class="sent">sent</span><span>Sample Co B</span><span>1 of 3</span><span class="stop">replied</span><span>Sample Co C</span><span>—</span><span class="stop">unsub</span></div></div>
         <span class="go-link"><span>sheets-outbound-sequencer</span><span aria-hidden="true">↗</span></span>
       </a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="wrap sec" id="services" aria-labelledby="svc-h">
+    <div class="sec-head">
+      <p class="eyebrow">What I do</p>
+      <h2 id="svc-h">Four things, <span class="serif">done properly.</span></h2>
+    </div>
+    <div class="bento">
+      <div class="t s3 svc rv"><span class="num">01</span><h3>GTM engineering and RevOps</h3><p>Lead routing, speed to lead, CRM hygiene and reporting that ranks problems by money at risk.</p></div>
+      <div class="t s3 sand svc rv"><span class="num">02</span><h3>CRM builds</h3><p>Salesforce Apex and Flow with tests. HubSpot pipelines, properties and API work.</p></div>
+      <div class="t s3 lav svc rv"><span class="num">03</span><h3>AI automation with Claude</h3><p>LLM workflows measured against a test set, MCP servers, and a person approving what goes out.</p></div>
+      <div class="t s3 terra svc rv"><span class="num">04</span><h3>UI/UX and visual design</h3><p>Dashboards, CRM screens and forms that a rep or a buyer can read at a glance.</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap sec" id="about" aria-labelledby="bg-h">
+    <div class="sec-head">
+      <p class="eyebrow">About me</p>
+      <h2 id="bg-h">Designer, then seller, <span class="serif">now builder.</span></h2>
+      <p>I carried a target before I built systems for one. I know what a rep needs at 9 am, because I was the rep. That is why what I build gets used.</p>
+    </div>
+    <div class="bento">
+      <div class="t s7 rv">
+        <p class="lbl">The route here</p>
+        <ol class="tl">
+          <li><span class="when">2026</span><div><h3>GTM engineering</h3><p>Sales systems with Claude Code: a CRM workstation in Node.js, outbound sequences, Salesforce and n8n routing, and AI agents that draft while a person approves every send.</p></div></li>
+          <li><span class="when">3 years</span><div><h3>Buyer, high-volume sales</h3><p>Top 20 of 450 nationally. Named Lead Buyer twice and never missed a monthly target. 22% lead-to-close, 35% above the national average, after I tracked my own funnel and fixed speed to lead and follow-up.</p></div></li>
+          <li><span class="when">2020–2023</span><div><h3>Designer and project manager, fit-out</h3><p>Designed spaces and ran the projects that built them: budgets, suppliers and site teams.</p></div></li>
+          <li><span class="when">2019</span><div><h3>BA Interior Design (Hons)</h3><p>Vega School.</p></div></li>
+        </ol>
+      </div>
+      <div class="t s5 lav rv how">
+        <p class="lbl">How I work</p>
+        <ul>
+          <li><h3>I say the number.</h3><p>Every figure on this page comes from a test, a committed output or a sales record.</p></li>
+          <li><h3>I state the limits.</h3><p>Synthetic data is labelled, and each README says where the result would not hold.</p></li>
+          <li><h3>A person approves every send.</h3><p>My AI agents draft. Nothing I build contacts anyone on its own.</p></li>
+          <li><h3>I build for the rep.</h3><p>I was one, so every screen is made to be read in two seconds.</p></li>
+        </ul>
+      </div>
+      <div class="t sand rv want" style="grid-column:1/-1">
+        <p class="lbl">What I'm looking for</p>
+        <dl>
+          <div><dt>Role</dt><dd>GTM engineering, RevOps or sales systems</dd></div>
+          <div><dt>Where</dt><dd>Remote, based in Pretoria</dd></div>
+          <div><dt>Hours</dt><dd>UK, EU and US Eastern</dd></div>
+          <div><dt>Certified</dt><dd>HubSpot Sales Hub</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -402,39 +485,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="wrap sec" id="services" aria-labelledby="svc-h">
-    <div class="sec-head">
-      <p class="eyebrow">What I do</p>
-      <h2 id="svc-h">Four things, <span class="serif">done properly.</span></h2>
-    </div>
-    <div class="bento">
-      <div class="t s3 svc rv"><span class="num">01</span><h3>GTM engineering and RevOps</h3><p>Lead routing, speed to lead, CRM hygiene and reporting that ranks problems by money at risk.</p></div>
-      <div class="t s3 sand svc rv"><span class="num">02</span><h3>CRM builds</h3><p>Salesforce Apex and Flow with tests. HubSpot pipelines, properties and API work.</p></div>
-      <div class="t s3 lav svc rv"><span class="num">03</span><h3>AI automation with Claude</h3><p>LLM workflows measured against a test set, MCP servers, and a person approving what goes out.</p></div>
-      <div class="t s3 terra svc rv"><span class="num">04</span><h3>UI/UX and visual design</h3><p>Dashboards, CRM screens and forms that a rep or a buyer can read at a glance.</p></div>
-    </div>
-  </section>
-
-  <!-- BACKGROUND -->
-  <section class="wrap sec" id="background" aria-labelledby="bg-h">
-    <div class="bento">
-      <div class="t s5 rv">
-        <p class="eyebrow">Background</p>
-        <h2 id="bg-h" style="font-size:clamp(2rem,4.4vw,3rem);line-height:1;margin-top:.8rem">Designer, then seller, <span class="serif">now builder.</span></h2>
-        <p class="muted" style="margin:1rem 0 0">I carried a target before I built systems for one. I know what a rep needs at 9 am, because I was the rep. HubSpot Sales Hub certified.</p>
-      </div>
-      <div class="t s7 rv">
-        <ol class="tl">
-          <li><span class="when">2026</span><div><h3>GTM engineering</h3><p>Sales systems with Claude Code: a CRM workstation in Node.js, outbound sequences, Salesforce and n8n routing, and AI agents that draft while a person approves every send.</p></div></li>
-          <li><span class="when">3 years</span><div><h3>Buyer, high-volume sales</h3><p>Top 20 of 450 nationally. Named Lead Buyer twice and never missed a monthly target. 22% lead-to-close, 35% above the national average, after I tracked my own funnel and fixed speed to lead and follow-up.</p></div></li>
-          <li><span class="when">2020–2023</span><div><h3>Designer and project manager, fit-out</h3><p>Designed spaces and ran the projects that built them: budgets, suppliers and site teams.</p></div></li>
-          <li><span class="when">2019</span><div><h3>BA Interior Design (Hons)</h3><p>Vega School.</p></div></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section class="wrap sec" id="contact" aria-labelledby="contact-h">
     <div class="bento">
@@ -471,6 +521,6 @@
   <p id="lbCap"></p>
 </dialog>
 
-<script src="site.js" defer></script>
+<script src="site.js?v=20261114" defer></script>
 </body>
 </html>
