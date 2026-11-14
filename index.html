@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23d3cbb7'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='700' fill='%2315130f' text-anchor='middle'%3ERJ%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="img/ryno-portrait.webp" as="image" type="image/webp">
 <link rel="preload" href="fonts/InstrumentSans-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=20261114">
+<link rel="stylesheet" href="style.css?v=20261114b">
 <script>document.documentElement.classList.remove('no-js')</script>
 </head>
 <body>
@@ -59,10 +59,16 @@
   <section class="wrap hero" aria-labelledby="name">
     <div class="bento hero-grid">
       <div class="t intro">
-        <div>
-          <h1 id="name">Ryno <span class="serif">Jordaan</span></h1>
-          <p class="role">GTM engineer: <b>sales systems, data and AI</b></p>
-          <p class="sub">I sold first: top 20 of 450 buyers nationally. Now I build the systems that get a lead to the right rep in milliseconds and show where pipeline money leaks. I trained as a designer, so people want to use what I build.</p>
+        <div class="intro-top">
+          <div>
+            <h1 id="name">Ryno <span class="serif">Jordaan</span></h1>
+            <p class="role">GTM engineer: <b>sales systems, data and AI</b></p>
+            <p class="sub">I sold first: top 20 of 450 buyers nationally. Now I build the systems that get a lead to the right rep in milliseconds and show where pipeline money leaks. I trained as a designer, so people want to use what I build.</p>
+          </div>
+          <figure class="portrait">
+            <img src="img/ryno-portrait.webp" width="800" height="800" alt="Ryno Jordaan, smiling, in round glasses and a dark jacket" fetchpriority="high">
+            <figcaption><span class="status">Open to remote</span><span>Pretoria, South Africa · UTC+2</span></figcaption>
+          </figure>
         </div>
         <div class="btns">
           <a class="btn light" href="#demo">Try the lead router <span class="arr" aria-hidden="true">↓</span></a>
@@ -70,11 +76,6 @@
           <a class="btn" href="https://www.linkedin.com/in/ryno-jordaan/" rel="noopener">Message me <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
-
-      <figure class="t portrait">
-        <img src="img/ryno-portrait.webp" width="800" height="800" alt="Ryno Jordaan, smiling, in round glasses and a dark jacket" fetchpriority="high">
-        <figcaption><span class="status">Open to remote</span><span>Pretoria, South Africa · UTC+2</span></figcaption>
-      </figure>
 
       <div class="t sand ledger" aria-labelledby="ledger-h">
         <div class="top"><p class="lbl" id="ledger-h">Found leaking</p><p class="lbl">Revenue Leak Engine</p></div>
@@ -471,8 +472,8 @@
         <figcaption>CRM lead view<span>Concept</span></figcaption>
       </figure>
       <figure class="shot w5 rv">
-        <button type="button" data-lb="img/design/concept-mobile.webp" data-cap="Concept: a mobile lead form, the confirmation that names the rep, and the rep's alert.">
-          <img src="img/design/concept-mobile.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Three phone screens: a lead form, a confirmation naming the rep, and a Slack alert to the rep">
+        <button type="button" data-lb="img/design/concept-mobile.webp?v=2" data-cap="Concept: a mobile lead form, the confirmation that names the rep, and the rep's alert.">
+          <img src="img/design/concept-mobile.webp?v=2" width="1600" height="1000" loading="lazy" decoding="async" alt="Three phone screens: a lead form, a confirmation naming the rep, and a Slack alert to the rep">
         </button>
         <figcaption>Mobile lead capture<span>Concept</span></figcaption>
       </figure>
@@ -521,6 +522,6 @@
   <p id="lbCap"></p>
 </dialog>
 
-<script src="site.js?v=20261114" defer></script>
+<script src="site.js?v=20261114b" defer></script>
 </body>
 </html>

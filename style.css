@@ -385,23 +385,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;
 @media (max-width:47.99rem){.menu-btn{display:grid}.bar nav{gap:.4rem}}
 @media (min-width:48rem){.sheet{display:none}}
 
-/* hero: name, portrait, ledger */
-.hero-grid .intro,.hero-grid .portrait,.hero-grid .ledger{grid-column:span 12}
+/* hero: name with a small portrait at the side, ledger */
+.hero-grid .intro,.hero-grid .ledger{grid-column:span 12}
 .hero-grid .intro{min-height:0;gap:2rem}
 .hero-grid .intro h1{font-size:clamp(3.4rem,13vw,6.4rem)}
-.portrait{margin:0;padding:0;aspect-ratio:5/4;background:#b9330f;border-color:transparent}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 28%}
-.portrait figcaption{position:absolute;left:0;right:0;bottom:0;padding:3rem 1.1rem 1rem;display:grid;gap:.2rem;font-size:.9rem;line-height:1.3;color:#fff;background:linear-gradient(rgba(12,6,3,0),rgba(12,6,3,.86))}
-@media (min-width:48rem){
-  .hero-grid .portrait{grid-column:span 5;aspect-ratio:auto;min-height:24rem}
-  .hero-grid .ledger{grid-column:span 7}
+.intro-top{display:grid;gap:1.3rem}
+.portrait{margin:0;display:flex;align-items:center;gap:.85rem;order:-1}
+.portrait img{width:84px;height:84px;border-radius:20px;object-fit:cover;object-position:45% 30%;flex:none}
+.portrait figcaption{display:grid;gap:.2rem;font-size:.9rem;line-height:1.3;color:var(--muted)}
+@media (min-width:40rem){
+  .intro-top{grid-template-columns:1fr auto;gap:1.6rem;align-items:start}
+  .portrait{order:0;display:grid;gap:.75rem;width:clamp(9.5rem,15vw,12rem)}
+  .portrait img{width:100%;height:auto;aspect-ratio:4/5;border-radius:18px}
+  .hero-grid .intro h1{font-size:clamp(3.6rem,9vw,6.4rem)}
 }
 @media (min-width:64rem){
-  .hero-grid .intro{grid-column:span 5;min-height:31rem}
-  .hero-grid .intro h1{font-size:clamp(4.6rem,8vw,6.4rem)}
-  .hero-grid .portrait{grid-column:span 3;min-height:0}
-  .hero-grid .ledger{grid-column:span 4}
-  .hero-grid .ledger .big{font-size:clamp(2.8rem,5.1vw,4.2rem)}
+  .hero-grid .intro{grid-column:span 7;min-height:30rem}
+  .hero-grid .intro h1{font-size:clamp(4.4rem,7.4vw,6rem)}
+  .hero-grid .ledger{grid-column:span 5}
 }
 .bars{position:relative;padding-top:2.6rem;height:clamp(10.5rem,16vw,13rem)}
 #drip{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
